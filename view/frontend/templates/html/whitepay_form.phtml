@@ -1,0 +1,14 @@
+<form action="<?php echo $block->getGateUrl(); ?>" method="POST" id="WHITEPAY_payment_form" style="display: none">
+    <?php foreach ($block->prepareOrderData() as $name => $value): ?>
+        <input type="hidden" name="<?php echo $block->escapeHtml($name); ?>"
+               value="<?php echo $block->escapeHtml($value); ?>"/>
+    <?php endforeach; ?>
+</form>
+
+<button class="action primary" type="submit" form="WHITEPAY_payment_form">Submit</button>
+
+<script type="text/javascript">
+     window.onload = function() {
+        document.getElementById("WHITEPAY_payment_form").submit();
+     }
+</script>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceContainer name="page.wrapper">
+        <block class="Whitepay\Payment\Block\Widget\Redirect" template="Whitepay_Payment::html/whitepay_form.phtml" cacheable="false"/>
+    </referenceContainer>
+</page>

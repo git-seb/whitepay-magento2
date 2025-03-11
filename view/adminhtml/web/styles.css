@@ -1,0 +1,21 @@
+.whitepay-payment-logo {
+    background: url("images/whitepay_logo.svg?width=965")  no-repeat 0 0 / 18rem auto;
+    background-size: contain;
+    height: 100px;
+    width: auto;
+    padding-left: 20rem;
+    display:inline-block;
+    vertical-align: middle;
+}
+
+.whitepay-payment-text {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+}
+
+.whitepay-payment-text-bold {
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: .025em;
+}

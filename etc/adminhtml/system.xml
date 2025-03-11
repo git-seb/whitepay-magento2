@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="whitepay"
+                   translate="label comment"
+                   type="text"
+                   sortOrder="10"
+                   showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="1">
+                <label>Whitepay</label>
+                <comment>
+                    <![CDATA[
+                        <div class="whitepay-payment-logo"></div>
+                        <div class="whitepay-payment-text">
+                            <div class="whitepay-payment-text-bold">Cryptocurrency payments&nbsp;</div>
+                            <i>Process payments by cryptocurrencies via Whitepay.</i>
+                        </div>
+                    ]]>
+                </comment>
+                <field id="active"
+                       translate="label tooltip"
+                       type="select"
+                       sortOrder="15"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0">
+                    <label>Enabled</label>
+                    <tooltip>Plugin state</tooltip>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title"
+                       translate="label tooltip"
+                       type="text"
+                       sortOrder="20"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Title</label>
+                    <tooltip>Text displayed at checkout</tooltip>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                </field>
+                <field id='slug'
+                       showInDefault='1'
+                       showInStore='1'
+                       showInWebsite='1'
+                       sortOrder='25'
+                       translate='label tooltip'
+                       type='text'>
+                    <label>Slug</label>
+                    <tooltip>You can manage your Whitepay Slug within the Whitepay Settings Account page - https://crm.whitepay.com/settings/account</tooltip>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id='token'
+                       showInDefault='1'
+                       showInStore='1'
+                       showInWebsite='1'
+                       sortOrder='30'
+                       translate='label tooltip'
+                       type='text'>
+                    <label>Token</label>
+                    <tooltip>You can manage your Whitepay Token within the Whitepay Settings Tokens page - https://crm.whitepay.com/settings/tokens</tooltip>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id='webhook_token'
+                       showInDefault='1'
+                       showInStore='1'
+                       showInWebsite='1'
+                       sortOrder='35'
+                       translate='label tooltip'
+                       type='text'>
+                    <label>Webhook token</label>
+                    <tooltip>Using a webhook will allow you to receive data on changes in order status (paid, cancelled) from Whitepay. To get a webhook token, you need to insert the Callback URL from this page to the Whitepay Settings Tokens page, create webhook and copy token.</tooltip>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                    <comment>
+                        <![CDATA[
+                        Use <strong>https://{your-domain}/whitepay/url/whitepaysuccess/</strong> where {your-domain} - your domain name
+                        ]]>
+                    </comment>
+                </field>
+                <field id='order_status'
+                       showInDefault='1'
+                       showInStore='1'
+                       showInWebsite='1'
+                       sortOrder='40'
+                       translate='label tooltip'
+                       type='select'>
+                    <label>New order status</label>
+                    <tooltip>Order status after creation</tooltip>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                </field>
+                <field id='after_pay_status'
+                       showInDefault='1'
+                       showInStore='1'
+                       showInWebsite='1'
+                       sortOrder='45'
+                       translate='label tooltip'
+                       type='select'>
+                    <label>Status after payment</label>
+                    <tooltip>Order status after successful payment</tooltip>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                </field>
+                <field id='after_refund_status'
+                       showInDefault='1'
+                       showInStore='1'
+                       showInWebsite='1'
+                       sortOrder='50'
+                       translate='label tooltip'
+                       type='select'>
+                    <label>Status after declined payment</label>
+                    <tooltip>Order status after declined payment</tooltip>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                </field>
+                <field id="send_confirmation_email"
+                       translate="label comment"
+                       type="select"
+                       sortOrder="55"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0">
+                    <label>Send Order Confirmation Email</label>
+                    <comment>Send an order confirmation email when the order is processed.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                </field>
+                <field id="instructions"
+                       translate="label tooltip"
+                       type="textarea"
+                       sortOrder="60"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0">
+                    <label>Instructions</label>
+                    <tooltip>Instructions to be displayed on the checkout page below the payment method label</tooltip>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                </field>
+                <field id="min_order_amount"
+                       translate="label tooltip"
+                       type="text"
+                       sortOrder="65"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0">
+                    <label>Minimum Order Amount</label>
+                    <tooltip>Minimum order amount to use Whitepay payment method</tooltip>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                </field>
+                <field id="max_order_amount"
+                       translate="label tooltip"
+                       type="text"
+                       sortOrder="70"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0">
+                    <label>Maximum Order Amount</label>
+                    <tooltip>Maximum order amount to use Whitepay payment method</tooltip>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                </field>
+                <field id="allowed_carrier"
+                       translate="label"
+                       type="multiselect"
+                       sortOrder="75"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0">
+                    <label>Allowed Shipping Methods</label>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                    <source_model>Magento\Shipping\Model\Config\Source\Allmethods</source_model>
+                </field>
+                <field id="sort_order"
+                       translate="label"
+                       type="text"
+                       sortOrder="80"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0">
+                    <label>Sort Order</label>
+                    <tooltip>Defines the sort order of the section of payment methods</tooltip>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                </field>
+                <field id="debug"
+                       translate="label tooltip"
+                       type="select"
+                       sortOrder="85"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="0">
+                    <label>Debug</label>
+                    <depends>
+                        <field id='active'>1</field>
+                    </depends>
+                    <tooltip>Enable Debug mode (logging into /var/log/whitepay.log)</tooltip>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
