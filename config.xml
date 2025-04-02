@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/config.xsd">
+    <default>
+        <payment>
+            <whitepay>
+                <active>1</active>
+                <model>Whitepay\Payment\Model\Whitepay</model>
+                <title>Whitepay</title>
+                <description>This text will be shown on the checkout page.</description>
+                <slug>slug</slug>
+                <token>token</token>
+                <webhook_token>webhook_token</webhook_token>
+                <order_status>pending</order_status>
+                <after_pay_status>complete</after_pay_status>
+                <after_refund_status>canceled</after_refund_status>
+                <sort_order>100</sort_order>
+                <debug>0</debug>
+                <payment_action>https://api.whitepay.com/</payment_action>
+                <allowspecific>0</allowspecific>
+            </whitepay>
+        </payment>
+    </default>
+</config>
