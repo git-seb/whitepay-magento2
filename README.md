@@ -92,7 +92,3 @@ You can install the plugin via Composer or by uploading it to `/app/code/`.
 ## Support
 
 This plugin is provided as-is without any support. Improvements are always welcome.
-
-## License
-
-This plugin is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
